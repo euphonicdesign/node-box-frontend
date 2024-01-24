@@ -21,21 +21,27 @@ const expensesElements = (expenses) => {
           </tr>
         </thead>
         <tbody>
-          {expenses.map((expense) => {
-            return (
-              <tr key={expense._id}>
-                <td>{expense.date}</td>
-                <td>{expense.description}</td>
-                <td>{expense.value}</td>
-                <td>{expense.category}</td>
-                <td>
-                  <button onClick={() => handleDelete(expense._id)}>
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            );
-          })}
+          {expenses
+            .sort(function (a, b) {
+              let c = new Date(a.date);
+              let d = new Date(b.date);
+              return d - c;
+            })
+            .map((expense) => {
+              return (
+                <tr key={expense._id}>
+                  <td>{expense.date}</td>
+                  <td>{expense.description}</td>
+                  <td>{expense.value}</td>
+                  <td>{expense.category}</td>
+                  <td>
+                    <button onClick={() => handleDelete(expense._id)}>
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
         </tbody>
       </table>
     </div>
