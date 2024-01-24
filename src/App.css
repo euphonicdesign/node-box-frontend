@@ -41,11 +41,17 @@
   color: #888;
 }
 
-.expenses-list {
-  list-style: none;
+table {
+  text-align: left;
 }
 
-.list-item {
+td,
+th {
+  margin-right: 20px;
+  padding: 0 20px;
+}
+
+.expenses-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
