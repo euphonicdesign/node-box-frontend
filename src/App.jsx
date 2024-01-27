@@ -36,7 +36,7 @@ function App() {
       <ExpensesTotal expenses={expenses} />
       <h2>List of expenses</h2>
       {expenses.length == 0 && <p>Loading...</p>}
-      <ListOfExpenses expenses={expenses} />
+      <ListOfExpenses expenses={expenses} handleDelete={handleDelete} />
     </>
   );
 }

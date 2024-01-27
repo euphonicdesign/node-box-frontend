@@ -1,4 +1,4 @@
-const expensesElements = (expenses) => {
+const expensesElements = (expenses, handleDelete) => {
   return (
     <div className="expenses-container">
       <table>
@@ -39,8 +39,8 @@ const expensesElements = (expenses) => {
   );
 };
 
-function ListOfExpenses({ expenses }) {
-  return <>{expensesElements(expenses)}</>;
+function ListOfExpenses({ expenses, handleDelete }) {
+  return <>{expensesElements(expenses, handleDelete)}</>;
 }
 
 export default ListOfExpenses;
