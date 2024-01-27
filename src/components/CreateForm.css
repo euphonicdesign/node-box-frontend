@@ -26,6 +26,10 @@ form {
     width: 80vw;
   }
 
+  form input {
+    flex-basis: 100%;
+  }
+
   table {
     margin: 0;
     padding: 0;
