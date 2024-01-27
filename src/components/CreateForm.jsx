@@ -43,7 +43,7 @@ function CreateForm({ handleRequests }) {
   }
 
   return (
-    <div>
+    <div className="form-container">
       <form onSubmit={handleSubmit}>
         <input
           type="date"

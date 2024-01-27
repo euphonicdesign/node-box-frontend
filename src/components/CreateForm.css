@@ -8,4 +8,13 @@ form > select {
 
 form {
   display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+
+.form-container {
+  /* width: 80vw; */
+  margin-right: auto;
+  margin-left: auto;
 }
