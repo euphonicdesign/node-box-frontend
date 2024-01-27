@@ -33,6 +33,10 @@ form {
   th,
   td {
     margin: 0;
-    padding: 0;
+    padding: 3px;
+  }
+
+  .expenses-container {
+    justify-content: center;
   }
 }

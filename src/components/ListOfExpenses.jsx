@@ -1,14 +1,5 @@
 const expensesElements = (expenses) => {
   return (
-    // <li key={expense._id} className="list-item">
-    //   <div className="expense-elements">
-    //     <div>{expense.date}</div>
-    //     <div>{expense.description}</div>
-    //     <div>{expense.value}</div>
-    //     <div>{expense.category}</div>
-    //   </div>
-    //   <button onClick={() => handleDelete(expense._id)}>Delete</button>
-    // </li>
     <div className="expenses-container">
       <table>
         <thead>
@@ -49,11 +40,7 @@ const expensesElements = (expenses) => {
 };
 
 function ListOfExpenses({ expenses }) {
-  return (
-    <>
-      <ul className="expenses-list">{expensesElements(expenses)}</ul>
-    </>
-  );
+  return <>{expensesElements(expenses)}</>;
 }
 
 export default ListOfExpenses;
