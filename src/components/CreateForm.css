@@ -25,4 +25,14 @@ form {
     flex-direction: column;
     width: 80vw;
   }
+
+  table {
+    margin: 0;
+    padding: 0;
+  }
+  th,
+  td {
+    margin: 0;
+    padding: 0;
+  }
 }
