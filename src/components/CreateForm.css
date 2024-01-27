@@ -18,3 +18,11 @@ form {
   margin-right: auto;
   margin-left: auto;
 }
+
+@media only screen and (max-width: 800px) {
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+  }
+}
