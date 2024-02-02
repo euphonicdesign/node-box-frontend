@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const expensesElements = (expenses, handleDelete) => {
   return (
     <div className="expenses-container">
@@ -28,6 +30,11 @@ const expensesElements = (expenses, handleDelete) => {
                   <td>
                     <button onClick={() => handleDelete(expense._id)}>
                       Delete
+                    </button>
+                    <button>
+                      <Link to={`/node-box-frontend/edit/${expense._id}`}>
+                        Edit
+                      </Link>
                     </button>
                   </td>
                 </tr>

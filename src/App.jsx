@@ -6,8 +6,10 @@ import CreateForm from "./components/CreateForm";
 import axios from "axios";
 import ListOfExpenses from "./components/ListOfExpenses";
 import ExpensesTotal from "./components/ExpensesTotal";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import EditForm from "./components/EditForm";
 
-function App() {
+function Home() {
   const [expenses, setExpenses] = useState([]);
   const [requests, setRequests] = useState(0);
 
@@ -38,6 +40,18 @@ function App() {
       {expenses.length == 0 && <p>Loading...</p>}
       <ListOfExpenses expenses={expenses} handleDelete={handleDelete} />
     </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/node-box-frontend/" element={<Home />} />
+        <Route path="/node-box-frontend/edit/" element={<EditForm />} />
+        <Route path="/node-box-frontend/edit/:id" element={<EditForm />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
