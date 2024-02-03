@@ -74,7 +74,7 @@ const EditForm = ({ test }) => {
             <option value="food">Food</option>
             <option value="other">Other</option>
           </select>
-          <button style={{ display: "block" }}>Submit</button>
+          <button style={{ display: "block" }}>Save</button>
         </form>
       </div>
 
