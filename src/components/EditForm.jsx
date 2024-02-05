@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const urlBase = "https://node-box.onrender.com/api/v1/expenses";
+// const urlBase = "http://localhost/api/v1/expenses";
 
 const EditForm = ({ test }) => {
   const [fieldsData, setFieldsData] = useState(null);
+  const { user } = useAuthContext();
 
   // console.log(test);
   const params = useParams();
@@ -15,8 +18,14 @@ const EditForm = ({ test }) => {
 
   const fetchData = async () => {
     // console.log("Fetching Edit Form Data...");
-
-    const data = await axios.get(url);
+    if (!user) {
+      return;
+    }
+    const data = await axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
     // console.log(data.data.expense);
     setFieldsData(data.data.expense);
     // console.log(fieldsData);
@@ -35,7 +44,14 @@ const EditForm = ({ test }) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const response = await axios.patch(url, fieldsData);
+    if (!user) {
+      return;
+    }
+    const response = await axios.patch(url, fieldsData, {
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
     // console.log(response);
   }
 

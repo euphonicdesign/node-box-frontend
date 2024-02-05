@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import "./CreateForm.css";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const resetFormDetails = () => {
   return {
@@ -13,7 +14,8 @@ const resetFormDetails = () => {
 
 function CreateForm({ handleRequests }) {
   const [formDetails, setFormDetails] = useState(resetFormDetails());
-
+  const [error, setError] = useState(null);
+  const { user } = useAuthContext();
   // const [date, setDate] = useState("2024-01-01");
   // const [description, setDescription] = useState("");
   // const [value, setValue] = useState("");
@@ -32,10 +34,25 @@ function CreateForm({ handleRequests }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    if (!user) {
+      setError("You must be logged in");
+      return;
+    }
+
     const response = await axios.post(
       "https://node-box.onrender.com/api/v1/expenses",
-      formDetails
+      formDetails,
+      {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
     );
+    // const response = await axios.post(
+    //   "https://node-box.onrender.com/api/v1/expenses",
+    //   formDetails,
+    // );
     // console.log(response);
     setFormDetails(resetFormDetails());
 
