@@ -14,7 +14,7 @@ const Login = () => {
 
   return (
     <form className="login" onSubmit={handleSubmit}>
-      <h3>Log in</h3>
+      {/* <h3>Log in</h3> */}
       <label htmlFor="">Email:</label>
       <input
         type="email"
@@ -32,6 +32,7 @@ const Login = () => {
         value={password}
       />
       <button disabled={isLoading}>Log in</button>
+      {isLoading && <div>Loading... (up to 1 min)</div>}
       {error && <div className="error">{error}</div>}
     </form>
   );

@@ -19,7 +19,7 @@ const Navbar = () => {
         <nav>
           {user && (
             <div>
-              <span>{user.email}</span>
+              <span className="user-email">{user.email}</span>
               <button onClick={handleClick}>Log out</button>
             </div>
           )}

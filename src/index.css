@@ -72,6 +72,7 @@ button:focus-visible {
 nav {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 nav a {
@@ -83,10 +84,27 @@ nav a {
 form.signup,
 form.login {
   max-width: 400px;
-  margin: 40px auto;
+  margin: 0px auto;
   padding: 20px;
   display: flex;
   flex-direction: column;
   text-align: start;
   gap: 10px;
+}
+
+form.signup input,
+form.login input {
+  border: 1px solid #1a1a1a;
+}
+
+.error {
+  text-align: center;
+}
+
+.user-email {
+  margin-right: 20px;
+}
+
+.delete-button {
+  margin-right: 5px;
 }

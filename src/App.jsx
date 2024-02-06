@@ -18,10 +18,12 @@ import Signup from "./pages/Signup";
 function Home() {
   const [expenses, setExpenses] = useState([]);
   const [requests, setRequests] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const { user } = useAuthContext();
 
   useEffect(() => {
     async function fetchData() {
+      setIsLoading(true);
       const data = await fetch(
         "https://node-box.onrender.com/api/v1/expenses",
         {
@@ -33,6 +35,7 @@ function Home() {
       // const data = await fetch("https://node-box.onrender.com/api/v1/expenses");
       const expensesData = await data.json();
       setExpenses(expensesData.expenses);
+      setIsLoading(false);
     }
     if (user) {
       fetchData();
@@ -67,7 +70,7 @@ function Home() {
       <CreateForm handleRequests={setRequests} />
       <ExpensesTotal expenses={expenses} />
       <h2>List of expenses</h2>
-      {expenses.length == 0 && <p>Loading...</p>}
+      {isLoading && <p>Loading...</p>}
       <ListOfExpenses expenses={expenses} handleDelete={handleDelete} />
     </>
   );

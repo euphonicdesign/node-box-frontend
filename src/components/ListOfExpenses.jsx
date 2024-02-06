@@ -28,7 +28,10 @@ const expensesElements = (expenses, handleDelete) => {
                   <td>{expense.value}</td>
                   <td>{expense.category}</td>
                   <td>
-                    <button onClick={() => handleDelete(expense._id)}>
+                    <button
+                      className="delete-button"
+                      onClick={() => handleDelete(expense._id)}
+                    >
                       Delete
                     </button>
                     <button>
